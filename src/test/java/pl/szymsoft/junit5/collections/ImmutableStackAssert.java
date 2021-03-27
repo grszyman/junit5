@@ -19,10 +19,10 @@ public class ImmutableStackAssert<E> extends AbstractAssert<ImmutableStackAssert
     public ImmutableStackAssert<E> isEmpty() {
         isNotNull();
         assertAll(
-                () -> org.assertj.core.api.Assertions.assertThat(actual.isEmpty()).as("stack.isEmpty()").isTrue(),
-                () -> org.assertj.core.api.Assertions.assertThat(actual.peek()).as("stack.peek()").isEmpty(),
-                () -> org.assertj.core.api.Assertions.assertThat(actual.size()).as("stack.size()").isZero(),
-                () -> org.assertj.core.api.Assertions.assertThat(actual.pop()).as("stack.pop()").isEqualTo(actual)
+                () -> Assertions.assertThat(actual.isEmpty()).as("isEmpty()").isTrue(),
+                () -> Assertions.assertThat(actual.peek()).as("peek()").isEmpty(),
+                () -> Assertions.assertThat(actual.size()).as("size()").isZero(),
+                () -> Assertions.assertThat(actual.pop()).as("pop()").isEqualTo(actual)
         );
         return this;
     }
@@ -30,10 +30,10 @@ public class ImmutableStackAssert<E> extends AbstractAssert<ImmutableStackAssert
     public ImmutableStackAssert<E> isNotEmpty() {
         isNotNull();
         assertAll(
-                () -> Assertions.assertThat(actual.isEmpty()).as("stack.isEmpty()").isFalse(),
-                () -> Assertions.assertThat(actual.peek()).as("stack.peek()").isPresent(),
-                () -> Assertions.assertThat(actual.size()).as("stack.size()").isPositive(),
-                () -> Assertions.assertThat(actual.pop()).as("stack.pop()").isNotEqualTo(actual)
+                () -> Assertions.assertThat(actual.isEmpty()).as("isEmpty()").isFalse(),
+                () -> Assertions.assertThat(actual.peek()).as("peek()").isPresent(),
+                () -> Assertions.assertThat(actual.size()).as("size()").isPositive(),
+                () -> Assertions.assertThat(actual.pop()).as("pop()").isNotEqualTo(actual)
         );
         return this;
     }
