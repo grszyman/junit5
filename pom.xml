@@ -64,6 +64,8 @@
     <distributionManagement>
         <repository>
             <id>github</id>
+            <name>GitHub grszyman Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/grszyman/*</url>
         </repository>
     </distributionManagement>
 
