@@ -1,9 +1,7 @@
 package pl.szymsoft.junit5.collections;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertAll;
-
-import java.util.function.Consumer;
+import static pl.szymsoft.junit5.collections.ImmutableStackAssert.assertThat;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -15,20 +13,6 @@ class ImmutableStackTest {
 
     private static final String FIRST_ELEMENT = "1";
     private static final String SECOND_ELEMENT = "2";
-
-    private static final Consumer<ImmutableStack<String>> DEFINITION_OF_THE_EMPTY_STACK = stack -> assertAll(
-            () -> assertThat(stack.isEmpty()).as("stack.isEmpty()").isTrue(),
-            () -> assertThat(stack.peek()).as("stack.peek()").isEmpty(),
-            () -> assertThat(stack.size()).as("stack.size()").isZero(),
-            () -> assertThat(stack.pop()).as("stack.pop()").isEqualTo(stack)
-    );
-
-    private static final Consumer<ImmutableStack<String>> DEFINITION_OF_THE_NOT_EMPTY_STACK = stack -> assertAll(
-            () -> assertThat(stack.isEmpty()).as("stack.isEmpty()").isFalse(),
-            () -> assertThat(stack.peek()).as("stack.peek()").isPresent(),
-            () -> assertThat(stack.size()).as("stack.size()").isPositive(),
-            () -> assertThat(stack.pop()).as("stack.pop()").isNotEqualTo(stack)
-    );
 
     @Test
     @DisplayName("is instantiated with empty()")
@@ -47,7 +31,7 @@ class ImmutableStackTest {
         @Test
         @DisplayName("is empty")
         void is_empty() {
-            assertThat(stack).satisfies(DEFINITION_OF_THE_EMPTY_STACK);
+            assertThat(stack).isEmpty();
         }
 
         @Nested
@@ -62,7 +46,7 @@ class ImmutableStackTest {
             @Test
             @DisplayName("is no longer empty")
             void is_no_longer_empty() {
-                assertThat(stack).satisfies(DEFINITION_OF_THE_NOT_EMPTY_STACK);
+                assertThat(stack).isNotEmpty();
             }
 
             @Test
@@ -89,7 +73,7 @@ class ImmutableStackTest {
                 @Test
                 @DisplayName("is empty again")
                 void is_empty_again() {
-                    assertThat(stack).satisfies(DEFINITION_OF_THE_EMPTY_STACK);
+                    assertThat(stack).isEmpty();
                 }
             }
 
@@ -105,7 +89,7 @@ class ImmutableStackTest {
                 @Test
                 @DisplayName("is still not empty")
                 void is_still_not_empty() {
-                    assertThat(stack).satisfies(DEFINITION_OF_THE_NOT_EMPTY_STACK);
+                    assertThat(stack).isNotEmpty();
                 }
 
                 @Test
