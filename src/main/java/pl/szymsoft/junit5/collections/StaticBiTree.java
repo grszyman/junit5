@@ -7,7 +7,7 @@ import javax.annotation.Nonnull;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor(access = PRIVATE)
-public class StaticBiTree<E extends Comparable<E>> {
+public class StaticBiTree<E extends Comparable<E>> implements SearchableContainer<E> {
 
     private static final Node<?> EMPTY_NODE = new EmptyNode<>();
 
@@ -28,14 +28,17 @@ public class StaticBiTree<E extends Comparable<E>> {
         root = root.with(value);
     }
 
+    @Override
     public boolean isEmpty() {
         return root.isEmpty();
     }
 
+    @Override
     public int size() {
         return root.size();
     }
 
+    @Override
     public boolean contains(E value) {
         return root.contains(value);
     }

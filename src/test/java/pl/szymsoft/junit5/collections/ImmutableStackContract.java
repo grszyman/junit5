@@ -55,7 +55,7 @@ abstract class ImmutableStackContract {
 
             @Test
             void has_a_size_of_1() {
-                assertThat(stack.size()).isOne();
+                assertThat(stack).hasSize(1);
             }
 
             @Nested
@@ -89,7 +89,7 @@ abstract class ImmutableStackContract {
 
                 @Test
                 void has_a_size_of_2() {
-                    assertThat(stack.size()).isEqualTo(2);
+                    assertThat(stack).hasSize(2);
                 }
 
                 @Test

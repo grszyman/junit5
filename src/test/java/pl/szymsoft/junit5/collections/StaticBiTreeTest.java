@@ -1,7 +1,7 @@
 package pl.szymsoft.junit5.collections;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static pl.szymsoft.junit5.collections.ImmutableTreeAssert.assertThat;
+import static pl.szymsoft.junit5.collections.SearchableContainerAssert.assertThat;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
@@ -31,7 +31,7 @@ class StaticBiTreeTest {
 
         @Test
         void does_not_contain_an_element() {
-            assertThat(tree.contains("AN_ELEMENT")).isFalse();
+            assertThat(tree).doesNotContains("AN_ELEMENT");
         }
 
         @Nested
@@ -51,12 +51,12 @@ class StaticBiTreeTest {
 
             @Test
             void has_size_of_1() {
-                assertThat(tree.size()).isOne();
+                assertThat(tree).hasSize(1);
             }
 
             @Test
             void contains_the_first_element() {
-                assertThat(tree.contains(FIRST_ELEMENT)).isTrue();
+                assertThat(tree).contains(FIRST_ELEMENT);
             }
 
             @Nested
@@ -76,17 +76,17 @@ class StaticBiTreeTest {
 
                 @Test
                 void has_size_of_2() {
-                    assertThat(tree.size()).isEqualTo(2);
+                    assertThat(tree).hasSize(2);
                 }
 
                 @Test
                 void contains_the_first_element() {
-                    assertThat(tree.contains(FIRST_ELEMENT)).isTrue(); // TODO: move to assertion
+                    assertThat(tree).contains(FIRST_ELEMENT);
                 }
 
                 @Test
                 void contains_the_second_element() {
-                    assertThat(tree.contains(SECOND_ELEMENT)).isTrue(); // TODO: move to assertion
+                    assertThat(tree).contains(SECOND_ELEMENT);
                 }
 
             }
