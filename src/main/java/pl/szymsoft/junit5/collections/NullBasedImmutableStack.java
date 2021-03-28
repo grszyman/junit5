@@ -39,10 +39,7 @@ public class NullBasedImmutableStack<E> implements ImmutableStack<E> {
     @Override
     public int size() {
         if (parentStack == null) {
-            if (valueOnTop == null) {
-                return 0;
-            }
-            return 1;
+            return 0;
         }
         return 1 + parentStack.size();
     }
