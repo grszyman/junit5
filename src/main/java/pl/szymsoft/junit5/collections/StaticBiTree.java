@@ -18,10 +18,9 @@ public class StaticBiTree<E extends Comparable<E>> implements SearchableContaine
         return new StaticBiTree<E>(emptyNode());
     }
 
+    @SuppressWarnings("unchecked")
     private static <E extends Comparable<E>> Node<E> emptyNode() {
-        @SuppressWarnings("unchecked")
-        var emptyNode = (Node<E>) EMPTY_NODE;
-        return emptyNode;
+        return (Node<E>) EMPTY_NODE;
     }
 
     public void add(E value) {
