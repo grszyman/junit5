@@ -6,13 +6,13 @@ import org.assertj.core.api.AbstractAssert;
 import org.assertj.core.api.Assertions;
 
 @SuppressWarnings("UnusedReturnValue")
-public class ImmutableTreeAssert<E> extends AbstractAssert<ImmutableTreeAssert<E>, StaticTree<E>> {
+public class ImmutableTreeAssert<E extends Comparable<E>> extends AbstractAssert<ImmutableTreeAssert<E>, StaticBiTree<E>> {
 
-    ImmutableTreeAssert(StaticTree<E> tree) {
+    ImmutableTreeAssert(StaticBiTree<E> tree) {
         super(tree, ImmutableTreeAssert.class);
     }
 
-    public static <E> ImmutableTreeAssert<E> assertThat(StaticTree<E> actual) {
+    public static <E extends Comparable<E>> ImmutableTreeAssert<E> assertThat(StaticBiTree<E> actual) {
         return new ImmutableTreeAssert<>(actual);
     }
 

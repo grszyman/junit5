@@ -10,19 +10,19 @@ import org.junit.jupiter.api.Test;
 import pl.szymsoft.junit5.utils.HumanDisplayName;
 
 @HumanDisplayName
-class StaticTreeTest {
+class StaticBiTreeTest {
 
     @Test
     void is_instantiated_with_the_empty_method() {
-        assertThat(StaticTree.empty())
+        assertThat(StaticBiTree.empty())
                 .isNotNull()
-                .isInstanceOf(StaticTree.class);
+                .isInstanceOf(StaticBiTree.class);
     }
 
     @Nested
     class when_created_with_the_empty_method {
 
-        private final StaticTree<String> tree = StaticTree.empty();
+        private final StaticBiTree<String> tree = StaticBiTree.empty();
 
         @Test
         void is_empty() {
@@ -72,6 +72,21 @@ class StaticTreeTest {
                 @Test
                 void is_still_not_empty() {
                     assertThat(tree).isNotEmpty();
+                }
+
+                @Test
+                void has_size_of_2() {
+                    assertThat(tree.size()).isEqualTo(2);
+                }
+
+                @Test
+                void contains_the_first_element() {
+                    assertThat(tree.contains(FIRST_ELEMENT)).isTrue(); // TODO: move to assertion
+                }
+
+                @Test
+                void contains_the_second_element() {
+                    assertThat(tree.contains(SECOND_ELEMENT)).isTrue(); // TODO: move to assertion
                 }
 
             }
