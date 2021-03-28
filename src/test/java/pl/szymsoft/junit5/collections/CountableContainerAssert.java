@@ -11,7 +11,7 @@ public class CountableContainerAssert<SELF extends CountableContainerAssert<SELF
     protected final SELF myself;
 
     @SuppressWarnings("unchecked")
-    public CountableContainerAssert(ACTUAL actual, Class<?> selfType) {
+    public CountableContainerAssert(ACTUAL actual, Class<? extends CountableContainerAssert> selfType) {
         super(actual, selfType);
         myself = (SELF) selfType.cast(this);
     }
